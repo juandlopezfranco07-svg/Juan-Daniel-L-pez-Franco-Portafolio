@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juan Daniel López Franco · Analista de negocio</title>
+  <meta name="description" content="Portafolio de Juan Daniel López Franco, Analista de negocio con experiencia en indicadores, automatización de reportes y optimización de procesos.">
+  <meta property="og:title" content="Juan Daniel López Franco · Analista de negocio">
+  <meta property="og:description" content="Habilidades demostradas con proyectos y resultados en análisis de negocio y mejora de procesos.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f3f0ff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f0ff;
+      --card: #fff;
+      --ink: #1d1530;
+      --muted: #625a76;
+      --line: #ebe7f6;
+      --soft: #f6f3ff;
+      --purple: #6d28d9;
+      --pink: #d94691;
+      --green: #126b3b;
+      --heading: "Bricolage Grotesque", system-ui, sans-serif;
+      --body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { min-height: 100vh; margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); -webkit-font-smoothing: antialiased; background-image: radial-gradient(rgba(109,40,217,.15) 1.2px, transparent 1.4px); background-size: 20px 20px; }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+    .skip { position: absolute; top: -5rem; left: 1rem; z-index: 30; padding: .65rem 1rem; border-radius: 10px; background: var(--ink); color: #fff; }
+    .skip:focus { top: 1rem; }
+    .stage { min-height: 100vh; display: grid; place-items: center; padding: clamp(16px,4vw,48px) 14px; }
+    .card { width: min(100%, 860px); overflow: hidden; border-radius: 30px; background: var(--card); box-shadow: 0 40px 80px -40px rgba(60,20,120,.45), 0 0 0 1px var(--line); }
+    .cover { height: 118px; position: relative; overflow: hidden; background: linear-gradient(120deg,var(--purple),var(--pink)); }
+    .cover::before, .cover::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255,255,255,.17); }
+    .cover::before { width: 220px; height: 220px; right: -40px; top: -90px; }
+    .cover::after { width: 120px; height: 120px; left: 30%; bottom: -70px; }
+    .head { position: relative; margin-top: -52px; padding: 0 clamp(20px,4vw,42px); }
+    .avatar { display: grid; place-items: center; width: 104px; height: 104px; border: 5px solid var(--card); border-radius: 28px; background: var(--ink); color: #fff; box-shadow: 0 14px 30px -12px rgba(29,21,48,.5); font: 800 30px/1 var(--heading); letter-spacing: -.06em; }
+    .head-row { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 12px 18px; margin-top: 14px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 0; font: 800 clamp(2rem,5.4vw,3rem)/1 var(--heading); letter-spacing: -.045em; }
+    .role { margin: .45rem 0 0; color: var(--muted); font-weight: 600; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 99px; background: #ecfdf3; color: var(--green); font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 4px rgba(22,163,74,.17); }
+    .intro { margin: 16px 0 0; color: #3a3150; font-size: clamp(1rem,2.1vw,1.08rem); }
+    .intro strong { color: var(--purple); }
+    .stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-top: 20px; }
+    .stat { min-width: 0; padding: 12px 14px; border-radius: 16px; background: var(--soft); }
+    .stat strong { display: block; color: var(--purple); font: 800 clamp(1.5rem,4vw,1.85rem)/1.1 var(--heading); }
+    .stat span { display: block; color: var(--muted); font-size: 13px; line-height: 1.35; }
+    .tabs { position: sticky; top: 0; z-index: 5; display: flex; gap: 4px; overflow-x: auto; margin: 24px clamp(14px,3.5vw,38px) 0; padding: 5px; border-radius: 16px; background: var(--soft); scrollbar-width: thin; }
+    .tabs button { flex: 1 0 auto; min-height: 42px; padding: 9px 14px; border: 0; border-radius: 12px; background: transparent; color: var(--muted); font: 700 14px var(--heading); white-space: nowrap; }
+    .tabs button[aria-selected="true"] { background: var(--card); color: var(--ink); box-shadow: 0 4px 14px -6px rgba(29,21,48,.3); }
+    .panel { padding: 22px clamp(20px,4vw,42px) clamp(24px,4vw,38px); }
+    .panel[hidden] { display: none; }
+    .section-kicker { margin: 0 0 5px; color: var(--purple); font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .panel-title { margin: 0 0 16px; font: 800 clamp(1.55rem,3.5vw,2rem)/1.15 var(--heading); letter-spacing: -.035em; }
+    .section-lead { margin: -8px 0 18px; color: var(--muted); font-size: .94rem; }
+    .accordion { margin-bottom: 10px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; transition: border-color .25s,box-shadow .25s; }
+    .accordion[open] { border-color: rgba(109,40,217,.36); box-shadow: 0 12px 30px -20px rgba(109,40,217,.5); }
+    .accordion summary { display: flex; align-items: center; gap: 14px; min-height: 70px; padding: 14px 18px; list-style: none; cursor: pointer; }
+    .accordion summary::-webkit-details-marker { display: none; }
+    .num { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--soft); color: var(--purple); font: 800 14px var(--heading); }
+    .accordion[open] .num { background: var(--purple); color: #fff; }
+    .skill-name { flex: 1; font: 700 17px var(--heading); }
+    .skill-kind { display: block; color: var(--muted); font: 500 12px var(--body); }
+    .chevron { color: var(--muted); transition: transform .25s; }
+    .accordion[open] .chevron { transform: rotate(180deg); }
+    .skill-detail { display: grid; gap: 10px; padding: 0 18px 18px 70px; color: var(--muted); font-size: .93rem; }
+    .skill-detail p { margin: 0; }
+    .label { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .proof { padding: 11px 13px; border-radius: 12px; background: var(--soft); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .chips li { padding: 3px 10px; border: 1px solid var(--line); border-radius: 99px; font-size: 12px; font-weight: 600; }
+    .project { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px 20px; margin-bottom: 12px; padding: clamp(15px,3vw,20px); border: 1px solid var(--line); border-radius: 20px; transition: border-color .25s,box-shadow .25s; }
+    .project:hover { border-color: rgba(109,40,217,.35); box-shadow: 0 12px 26px -22px rgba(109,40,217,.5); }
+    .project h3 { margin: 0; font: 800 19px/1.2 var(--heading); }
+    .project-meta { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .result { align-self: start; min-width: 88px; text-align: right; }
+    .result strong { display: block; color: var(--purple); font: 800 30px/1 var(--heading); }
+    .result span { display: block; max-width: 150px; margin-left: auto; color: var(--muted); font-size: 11px; line-height: 1.35; }
+    .project-body { display: grid; grid-column: 1/-1; grid-template-columns: 1fr 1fr; gap: 14px; color: var(--muted); font-size: 14px; }
+    .project-body p { margin: 0; }
+    .project .chips { grid-column: 1/-1; }
+    .timeline { display: grid; gap: 0; }
+    .timeline-item { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 16px; padding: 15px 0; border-bottom: 1px dashed var(--line); }
+    .timeline-item:last-child { border-bottom: 0; }
+    .date { color: var(--purple); font: 700 13px var(--heading); }
+    .timeline-item h3 { margin: 0 0 3px; font: 700 16px/1.3 var(--heading); }
+    .timeline-item p { margin: 0; color: var(--muted); font-size: 13px; }
+    .subhead { margin: 22px 0 10px; font: 700 16px var(--heading); }
+    .education-list { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .education { padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .education strong { display: block; font: 700 14px/1.35 var(--heading); }
+    .education span { color: var(--muted); font-size: 12px; }
+    .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .extra { padding: 14px; border-radius: 15px; background: var(--soft); }
+    .extra h3 { margin: 0 0 8px; font: 700 14px var(--heading); }
+    .extra p { margin: 0; color: var(--muted); font-size: 13px; }
+    .contact-lead { margin: -5px 0 16px; color: var(--muted); }
+    .contact-list { display: grid; gap: 9px; }
+    .contact-link { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 55px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 15px; background: var(--soft); color: var(--ink); font: 700 14px var(--heading); text-decoration: none; overflow-wrap: anywhere; transition: transform .2s,border-color .2s,background .2s; }
+    .contact-link:hover { transform: translateY(-2px); border-color: var(--purple); }
+    .contact-link.primary { border-color: var(--purple); background: var(--purple); color: #fff; }
+    .contact-link .arrow { flex: none; font-size: 18px; }
+    .footer { padding: 0 16px 18px; color: var(--muted); font-size: 12px; text-align: center; }
+    .footer p { margin: 0; }
+    .reveal { opacity: 1; transform: none; }
+    .js-ready .reveal { opacity: 0; transform: translateY(12px); transition: opacity .45s ease,transform .45s ease; }
+    .js-ready .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 600px) {
+      .stage { padding: 12px 8px; }
+      .card { border-radius: 23px; }
+      .cover { height: 96px; }
+      .head { margin-top: -43px; padding-inline: 18px; }
+      .avatar { width: 86px; height: 86px; border-radius: 23px; font-size: 25px; }
+      .head-row { align-items: start; flex-direction: column; gap: 8px; margin-top: 13px; }
+      h1 { font-size: clamp(1.8rem,8vw,2.4rem); }
+      .role { font-size: 13px; }
+      .badge { font-size: 12px; }
+      .intro { font-size: 14px; }
+      .stats { gap: 6px; }
+      .stat { padding: 10px 8px; }
+      .stat strong { font-size: clamp(1.25rem,6vw,1.55rem); }
+      .stat span { font-size: 10px; }
+      .tabs { margin-inline: 10px; }
+      .tabs button { padding-inline: 12px; font-size: 13px; }
+      .panel { padding-inline: 15px; }
+      .accordion summary { gap: 10px; padding-inline: 12px; }
+      .skill-detail { padding-inline: 13px; }
+      .project { grid-template-columns: minmax(0,1fr); }
+      .result { display: flex; align-items: baseline; gap: 7px; text-align: left; }
+      .result span { max-width: none; margin: 0; }
+      .project-body { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 3px; }
+      .education-list, .extras { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .js-ready .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <main class="stage" id="contenido">
+    <article class="card" aria-labelledby="nombre">
+      <div class="cover" aria-hidden="true"></div>
+      <header class="head">
+        <div class="avatar reveal" aria-label="Iniciales JDLF">JDLF</div>
+        <div class="head-row">
+          <div>
+            <h1 class="reveal" id="nombre">Juan Daniel López Franco</h1>
+            <p class="role reveal">Analista de negocio · Administración de Negocios Internacionales y Logística</p>
+          </div>
+          <span class="badge reveal">Interés en oportunidades multinacionales</span>
+        </div>
+        <p class="intro reveal">Conecto <strong>análisis de indicadores</strong>, automatización de reportes y mejora de procesos para apoyar decisiones de negocio.</p>
+        <div class="stats" aria-label="Resultados destacados">
+          <div class="stat reveal"><strong>65 %</strong><span>menos tiempo de actualización de reportes</span></div>
+          <div class="stat reveal"><strong>50 %</strong><span>menos tiempo de exposición en comité</span></div>
+          <div class="stat reveal"><strong>70 %</strong><span>más eficiencia en logística inversa</span></div>
+        </div>
+      </header>
+
+      <nav class="tabs" role="tablist" aria-label="Secciones del portafolio">
+        <button type="button" role="tab" id="tab-habilidades" aria-controls="panel-habilidades" aria-selected="true">Habilidades</button>
+        <button type="button" role="tab" id="tab-proyectos" aria-controls="panel-proyectos" aria-selected="false" tabindex="-1">Proyectos</button>
+        <button type="button" role="tab" id="tab-trayectoria" aria-controls="panel-trayectoria" aria-selected="false" tabindex="-1">Trayectoria</button>
+        <button type="button" role="tab" id="tab-contacto" aria-controls="panel-contacto" aria-selected="false" tabindex="-1">Contacto</button>
+      </nav>
+
+      <section class="panel" role="tabpanel" id="panel-habilidades" aria-labelledby="tab-habilidades" tabindex="0">
+        <p class="section-kicker">Lo que sé hacer y cómo lo demuestro</p>
+        <h2 class="panel-title">Habilidades</h2>
+        <p class="section-lead">Selecciona cada habilidad para ver ejemplos concretos de mi experiencia.</p>
+        <details class="accordion" open>
+          <summary><span class="num">01</span><span class="skill-name">Pensamiento analítico<span class="skill-kind">Análisis de negocio</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="skill-detail"><p><span class="label">Aplicación</span>Analizo indicadores, tendencias y variaciones para apoyar decisiones.</p><div class="proof"><span class="label">Evidencia</span>Hice seguimiento al desempeño de mercados y rutas domésticas e internacionales en nueve países de Suramérica.</div><ul class="chips" aria-label="Herramientas relacionadas"><li>Excel</li><li>Power BI</li></ul></div>
+        </details>
+        <details class="accordion">
+          <summary><span class="num">02</span><span class="skill-name">Enfoque estratégico<span class="skill-kind">Planificación y escenarios</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="skill-detail"><p><span class="label">Aplicación</span>Relaciono resultados con objetivos, proyecciones y prioridades del equipo.</p><div class="proof"><span class="label">Evidencia</span>Contrasté resultados con objetivos presupuestales y proyecciones para apoyar la evaluación de escenarios.</div></div>
+        </details>
+        <details class="accordion">
+          <summary><span class="num">03</span><span class="skill-name">Orientación a resultados<span class="skill-kind">Seguimiento de desempeño</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="skill-detail"><p><span class="label">Aplicación</span>Apoyo el seguimiento de indicadores comerciales y operacionales.</p><div class="proof"><span class="label">Evidencia</span>Automaticé reportes y tableros en Avianca, reduciendo 65 % el tiempo de actualización.</div></div>
+        </details>
+        <details class="accordion">
+          <summary><span class="num">04</span><span class="skill-name">Atención al detalle<span class="skill-kind">Calidad de análisis</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="skill-detail"><p><span class="label">Aplicación</span>Reviso variaciones y alertas para entender cambios en los resultados.</p><div class="proof"><span class="label">Evidencia</span>Identifiqué tendencias y variaciones en indicadores, y contrasté resultados frente a objetivos y proyecciones.</div></div>
+        </details>
+        <details class="accordion">
+          <summary><span class="num">05</span><span class="skill-name">Aprendizaje continuo<span class="skill-kind">Formación</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="skill-detail"><p><span class="label">Aplicación</span>Complemento mi formación con programas de analítica, procesos y marketing.</p><div class="proof"><span class="label">Formación adicional</span>McKinsey Forward Program, Lean Six Sigma, Analíticas y Métricas de Marketing y “Quiero Ser Digital”.</div></div>
+        </details>
+        <details class="accordion">
+          <summary><span class="num">06</span><span class="skill-name">Liderazgo<span class="skill-kind">Acompañamiento y formación</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="skill-detail"><p><span class="label">Aplicación</span>Comparto conocimientos y acompaño a otras personas en su trabajo con datos.</p><div class="proof"><span class="label">Evidencia</span>Capacité y acompañé a 12 personas en buenas prácticas de análisis de datos y generación de reportes.</div></div>
+        </details>
+        <h3 class="subhead">Herramientas</h3>
+        <ul class="chips"><li>Excel · Avanzado</li><li>Power BI · Intermedio</li><li>Google Workspace · Avanzado</li></ul>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-proyectos" aria-labelledby="tab-proyectos" tabindex="0" hidden>
+        <p class="section-kicker">Resultados reportados</p>
+        <h2 class="panel-title">Proyectos destacados</h2>
+        <article class="project">
+          <div><h3>Automatización de reportes de negocio</h3><p class="project-meta">Práctica de Análisis de Negocio · Avianca</p></div>
+          <div class="result"><strong>65 %</strong><span>menos tiempo de actualización</span></div>
+          <div class="project-body"><p><span class="label">Trabajo realizado</span>Analicé indicadores comerciales y operacionales de mercados y rutas en nueve países de Suramérica. Desarrollé automatizaciones para reportes y tableros de seguimiento.</p><p><span class="label">Herramientas</span>Excel y Power BI.</p></div>
+          <ul class="chips"><li>Indicadores</li><li>Automatización</li><li>Visualización</li></ul>
+        </article>
+        <article class="project">
+          <div><h3>Rediseño del comité de seguimiento</h3><p class="project-meta">Práctica de Análisis de Negocio · Avianca</p></div>
+          <div class="result"><strong>50 %</strong><span>menos tiempo de exposición</span></div>
+          <div class="project-body"><p><span class="label">Trabajo realizado</span>Rediseñé el comité del área mediante una presentación ejecutiva dinámica para exponer resultados y facilitar la discusión estratégica.</p><p><span class="label">Formato</span>Presentación ejecutiva dinámica.</p></div>
+          <ul class="chips"><li>Comunicación ejecutiva</li><li>Seguimiento de resultados</li></ul>
+        </article>
+        <article class="project">
+          <div><h3>Mejora de logística inversa y layout operativo</h3><p class="project-meta">Semillero de investigación en Supply Chain Management · Grupo Amarey – Nova Medical</p></div>
+          <div class="result"><strong>70 %</strong><span>más eficiencia en logística inversa</span></div>
+          <div class="project-body"><p><span class="label">Trabajo realizado</span>Analicé flujos operativos, identifiqué cuellos de botella y documenté procesos bajo metodología Lean.</p><p><span class="label">Resultado adicional</span>Participé en una propuesta de mejora del layout operativo que redujo 60 % los reprocesos y tiempos logísticos.</p></div>
+          <ul class="chips"><li>Metodología Lean</li><li>Análisis de procesos</li><li>Flujo de materiales</li></ul>
+        </article>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-trayectoria" aria-labelledby="tab-trayectoria" tabindex="0" hidden>
+        <p class="section-kicker">Experiencia profesional y académica</p>
+        <h2 class="panel-title">Trayectoria</h2>
+        <div class="timeline">
+          <article class="timeline-item"><span class="date">Jul. 2025 – Actualidad</span><div><h3>Analista de Datos Independiente</h3><p>Proyecto independiente. Organización, análisis y visualización de información con Excel y Power BI para seguimiento de indicadores comerciales, operativos y de gestión. Capacitación y acompañamiento a 12 personas.</p></div></article>
+          <article class="timeline-item"><span class="date">Jul. 2022 – Ene. 2023</span><div><h3>Practicante de Análisis de Negocio · Avianca S.A.</h3><p>Seguimiento de indicadores en mercados y rutas de nueve países, apoyo a la planificación y automatización de reportes y tableros.</p></div></article>
+          <article class="timeline-item"><span class="date">Ago. 2021 – Jun. 2022</span><div><h3>Asistente de semillero · Supply Chain Management</h3><p>Grupo Amarey – Nova Medical. Análisis de procesos productivos y logísticos, identificación de cuellos de botella y documentación bajo metodología Lean.</p></div></article>
+        </div>
+        <h3 class="subhead">Formación académica</h3>
+        <div class="education-list">
+          <div class="education"><strong>Administración en Logística y Producción</strong><span>Universidad del Rosario · Ene. 2020 – Abr. 2023</span></div>
+          <div class="education"><strong>Administración de Negocios Internacionales</strong><span>Universidad del Rosario · Ago. 2017 – Abr. 2023</span></div>
+        </div>
+        <div class="extras">
+          <div class="extra"><h3>Idiomas</h3><p>Español nativo · Inglés C1 (IELTS) · Francés B1</p></div>
+          <div class="extra"><h3>Formación adicional</h3><p>McKinsey Forward Program · Lean Six Sigma · Analíticas y Métricas de Marketing · “Quiero Ser Digital”.</p></div>
+        </div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="panel-contacto" aria-labelledby="tab-contacto" tabindex="0" hidden>
+        <p class="section-kicker">Contacto profesional</p>
+        <h2 class="panel-title">Hablemos</h2>
+        <p class="contact-lead">Estoy interesado en oportunidades como Analista de negocio en compañías multinacionales.</p>
+        <div class="contact-list">
+          <a class="contact-link primary" href="mailto:juandlopezfranco07@gmail.com"><span>juandlopezfranco07@gmail.com</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="contact-link" href="tel:+573176458242"><span>+57 317 645 8242</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/juan-daniel-lopez-franco" target="_blank" rel="noopener noreferrer"><span>LinkedIn · Juan Daniel López Franco</span><span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+      <footer class="footer"><p>© 2026 Juan Daniel López Franco · Hecho con apoyo de IA</p></footer>
+    </article>
+  </main>
+  <script>
+    (() => {
+      const tabs = [...document.querySelectorAll('[role="tab"]')];
+      const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
+      function activate(index, moveFocus = false) {
+        tabs.forEach((tab, i) => {
+          const selected = i === index;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          panels[i].hidden = !selected;
+        });
+        if (moveFocus) tabs[index].focus();
+      }
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(index));
+        tab.addEventListener('keydown', event => {
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          activate(next, true);
+        });
+      });
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('js-ready');
+        const observer = new IntersectionObserver((entries, current) => entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); current.unobserve(entry.target); }
+        }), { threshold: .08 });
+        document.querySelectorAll('.reveal').forEach(item => observer.observe(item));
+      }
+    })();
+  </script>
+</body>
+</html>
